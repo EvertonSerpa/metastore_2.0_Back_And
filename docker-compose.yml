@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  dropshippingpg:
+    image: postgres:alpine
+    ports:
+      - "5434:5432"
+    container_name: "dropshipping"
+    restart: always
+    volumes:
+      - dropshippingpg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+volumes:
+  dropshippingpg-data:

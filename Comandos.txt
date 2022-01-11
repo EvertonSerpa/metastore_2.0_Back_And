@@ -1,0 +1,195 @@
+GIT 
+
+1 - git Init | Iniciando um novo repositório
+2 - git branch -m "main" Renomeando a branch master para main
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NODE
+
+nvm use 14.18.1 | Escolhe qual versão do nvm você vai usar.
+nvm list | Mostra as versões do nvm instaladas.
+nvm i 14.18.1 | Instala uma versão especifica
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DOCKER
+
+docker -v | ver qual a versão do docker composer está instalada.
+docker container ls -a | Lista os containes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NESTJS
+
+npm i -g @nestjs/cli | Instala globalmente o cli do nestjs
+nest + enter  | Ver se a instalação da cli deu certo, mostra um menu.
+nest new dropshipping | Cria um projeto em nestjs
+*escolha o npm como gerenciador de pacotes.
+
+npm run start:dev | Para rodar a aplaicação em modo desenvolvedor.
+npx nest generate -help | Mostra os comandos que a cli pode gerar.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Se estiver usando o thema Material Icon Theme, os icones do NestJS
+vão está bugados, para desbugar o thema vá em Arquivo>prefências>configurações
+
+Na tela de configurações vá no menu superior do lado direito ao lado do botão play
+(Abrir configurações de inteface do usuário) irá abri o settings.json.
+
+Copie a seguinte linha de cógigo dentro do arquivo para solucionar o bug com os icones.
+
+"material-icon-theme.activeIconPack": "nest",
+
+ESLINT
+
+Adicionar o comando para corrigir o erro do slint
+
+ "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+    },
+
+npm run eslint | Corrigi os erros do eslint.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Dentro da pasrta src vamos criar os componentes do users
+
+1 - npx nest generate controller users --no-spec
+2 - npx nest generate module users --no-spec
+3 - npx nest generate service users --no-spec
+
+obs: o --no-spec não gera os arquivos de testes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PRISMA
+
+npm i prisma --save-dev  | Instala o prisma. 
+npx prisma init | Inicializar um projeto no prisma.
+
+No arquivo .env configure ele de acordo com as configurações que foi
+passada no docker composer.
+
+npx prisma format | Toda vez que modificar a tabela, aplique esse comando para aplicar uma auto-formatação.
+npx prisma migrate dev | Para gerar a migrate.
+npx prisma generate | Chama o generate é gera as funções que foi passada no model
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DOCKER-COMPOSER
+
+docker-compose -v | Mostra a versão do docker instalada.
+
+1 - Dentro do diretorio principal vamos criar um arquivo com o seguinte nome
+docker-compose.yml
+
+2 - Dentro do docker-compose.yml coloque a seguinte configuração do docker.
+
+version: "3"
+
+services:
+  dropshippingpg:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    container_name: "dropshipping"
+    restart: always
+    volumes:
+      - dropshippingpg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+volumes:
+  dropshippingpg-data:
+
+3 - docker-compose up -d | Para criar o container no docker.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 - Dentro da pasta src vamos criar o arquivo | prisma.service.ts
+2 - Dentro do arquivo prisma.service.ts coloque a seguinte configuração de acordo com o manual do nestjs
+
+import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
+
+@Injectable()
+export class PrismaService extends PrismaClient
+  implements OnModuleInit {
+
+  async onModuleInit() {
+    await this.$connect();
+  }
+
+  async enableShutdownHooks(app: INestApplication) {
+    this.$on('beforeExit', async () => {
+      await app.close();
+    });    
+  }
+}
+
+*Esse é um código de configuração que o nestjs pede para fazer.
+
+1 - Dentro do users.midule.ts import o prisma service.
+
+import { PrismaService } from 'src/prisma.service';
+
+2 - E adicone aos providers providers: [UsersService, PrismaService]
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DTO
+
+1 - Dentro da pasta de cada "recurso" vamos criar uma pasta chamada dto
+
+2 - dentro do dto vamos criar um arquivo com o nome do recurso, create-user.dto.ts
+
+3 - O codigo do dto ficara 
+
+export class CreateUserDto {
+  name: string;
+  email: string;
+  passaword: string;
+  passawordConfirmation: string;
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ENUM 
+
+1 - Dentro do "users" vamos cria uma pasta chamada role
+2 - Dentro da pasta role crie um arquivo role.enum.ts 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Criptografia da senha.
+
+npm i bcrypt
+npm i -D @types/bcrypt
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GERANDO O MODULO DE AUTENTIFICAÇÃO
+AUTH
+
+1 - npx nest generate module auth --no-spec
+    npx nest generate service auth --no-spec
+    npx nest generate controller auth --no-spec
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+npm install class-validator --save
+npm install class-transformer
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JWT
+
+npx nest generate guard auth/simple
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8 3h 0MIN

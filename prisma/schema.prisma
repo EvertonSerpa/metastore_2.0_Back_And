@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  role     String   @default("USER")
+  status   Boolean  @default(true)
+  password String
+  updateAt DateTime @updatedAt
+  createAt DateTime @default(now())
+
+  Tephone Telephone[]
+}
+
+model Telephone {
+  id           String   @id @default(uuid())
+  phone_number String
+  country_code String
+  region_code  String
+  updateAt     DateTime @updatedAt
+  createAt     DateTime @default(now())
+
+
+  User   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String?
+}
