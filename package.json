@@ -5,6 +5,9 @@
   "author": "Everton Serpa",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": "17.0.1"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -75,4 +78,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+  
 }
