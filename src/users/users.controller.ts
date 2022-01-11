@@ -5,12 +5,13 @@ import {
   Get,
   Param,
   Delete,
-  UnprocessableEntityException,
+  UseGuards,
 } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { UserRole } from './role/role.enum';
+import { SimpleGuard } from 'src/auth/simple.guard';
 
 @Controller()
 export class UsersController {
@@ -26,6 +27,7 @@ export class UsersController {
 
   // ROTA DE CRIAÇÃO DO ADMINISTRADOR.
 
+  @UseGuards(SimpleGuard)
   @Post('create-admin')
   createAdmin(@Body() data: CreateUserDto): Promise<User> {
     delete data.passawordConfirmation;

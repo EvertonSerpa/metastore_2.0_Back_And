@@ -21,6 +21,10 @@ export class SimpleGuard implements CanActivate {
       throw new UnauthorizedException('Token não encontrado');
     }
 
-    if(token ?=  'MEU_TOKEN')
+    if (token !== 'MEU_TOKEN') {
+      throw new UnauthorizedException('Token não encontrado');
+    }
+
+    return true;
   }
 }
