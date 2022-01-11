@@ -13,7 +13,7 @@ import { UsersService } from './users.service';
 import { UserRole } from './role/role.enum';
 import { SimpleGuard } from 'src/auth/simple.guard';
 
-@Controller()
+@Controller('users')
 export class UsersController {
   constructor(private service: UsersService) {}
 
