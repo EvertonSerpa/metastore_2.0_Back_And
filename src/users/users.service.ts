@@ -7,6 +7,7 @@ import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { UserRole } from './role/role.enum';
 import * as bcrypt from 'bcrypt';
+import { prisma } from '../configs/db';
 
 @Injectable()
 export class UsersService {
@@ -15,7 +16,7 @@ export class UsersService {
   // CRIA O USUARIO.
 
   async create(data: Prisma.UserCreateInput, role: UserRole): Promise<User> {
-    const userExists = await this.db.user.findUnique({
+    const userExists = await prisma.user.findUnique({
       where: { email: data.email },
     });
 
@@ -32,7 +33,7 @@ export class UsersService {
 
     // INCLUSÃO DA CRIPTOGRAFIA DA SENHA E ROLE NO CREATE.
 
-    const user = await this.db.user.create({
+    const user = await prisma.user.create({
       data: {
         ...data,
         role: role,
@@ -49,7 +50,7 @@ export class UsersService {
   // PROCURANDO O USUARIO PELO ID.
 
   async findOne(id: string): Promise<User> {
-    const user = await this.db.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { id },
     });
 
@@ -71,7 +72,7 @@ export class UsersService {
 
   // A6 M4 3H: 25MIN.
   async findAll() {
-    const user = await this.db.user.findMany();
+    const user = await prisma.user.findMany();
     // DESESTRUTURAÇÃO.
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const newUser = user.map(({ password, ...resto }) => resto);
@@ -81,7 +82,7 @@ export class UsersService {
   // DELETA UM USUARIO PELO ID.
 
   async deleteOne(id: string): Promise<{ message: string }> {
-    await this.db.user.delete({
+    await prisma.user.delete({
       where: { id },
     });
 

@@ -17,5 +17,16 @@ async function bootstrap() {
   await app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
   });
+
+  app.useGlobalFilters();
+
+  app.enableCors({
+    //origin: "http://localhost:4200/",
+    origin: true,
+    methods: 'GET,POST,PUT,DELETE,OPTIONS,PATCH,UPDATE',
+    credentials: true,
+  });
+
+  app.setGlobalPrefix('api');
 }
 bootstrap();
