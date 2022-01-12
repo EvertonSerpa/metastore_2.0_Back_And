@@ -189,6 +189,8 @@ npm install class-transformer
 JWT
 
 npx nest generate guard auth/simple
+npm i @nestjs/passport passport @nestjs/jwt passport-jwt
+npm i @types/passport --save-dev
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

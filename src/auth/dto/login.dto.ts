@@ -10,6 +10,9 @@ export class LoginDto {
 }
 
 export class AuthResponse {
+  @IsString()
   token: string;
+
+  @IsString()
   user: User;
 }
