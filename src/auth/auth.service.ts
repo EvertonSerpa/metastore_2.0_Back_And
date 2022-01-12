@@ -6,7 +6,6 @@ import {
 import { PrismaService } from 'src/prisma.service';
 import { AuthResponse, LoginDto } from './dto/login.dto';
 import * as bcrypt from 'bcrypt';
-import { prisma } from '../configs/db';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -16,7 +15,7 @@ export class AuthService {
   async login(login: LoginDto): Promise<AuthResponse> {
     const { email, password } = login;
 
-    const user = await prisma.user.findUnique({
+    const user = await this.db.user.findUnique({
       where: { email },
     });
 
