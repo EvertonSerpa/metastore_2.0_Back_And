@@ -7,6 +7,7 @@ import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { UserRole } from './role/role.enum';
 import * as bcrypt from 'bcrypt';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -76,6 +77,19 @@ export class UsersService {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const newUser = user.map(({ password, ...resto }) => resto);
     return newUser;
+  }
+
+  // ATUALIZA UM USUARIO PELO ID. (PATCH)
+
+  async update(id: string, data: UpdateUserDto) {
+    await this.db.user.update({
+      where: { id },
+      data,
+    });
+
+    return {
+      mensage: 'Usuário atualizado com sucesso!',
+    };
   }
 
   // DELETA UM USUARIO PELO ID.

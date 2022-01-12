@@ -1,7 +1,17 @@
-import { Body, Controller, Post, Get, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Post,
+  Get,
+  Param,
+  Delete,
+  Patch,
+} from '@nestjs/common';
 import { Telephone } from '@prisma/client';
 import { CreateTelephoneDto } from './dto/create-telephone.dto';
 import { TelephonesService } from './telephones.service';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { UpdateTelephoneDto } from './dto/update-telephone.dto';
 
 @Controller('telephones')
 export class TelephonesController {
@@ -26,6 +36,16 @@ export class TelephonesController {
   @Get('find-all')
   findAll(): Promise<Telephone[]> {
     return this.service.findAll();
+  }
+
+  // ROTA, QUE ATUALIZA UM TELEFONE PELO ID (PATCH).
+
+  @Patch('patch/:id')
+  update(
+    @Param('id') id: string,
+    @Body() UpdateTelephoneDto: UpdateTelephoneDto,
+  ) {
+    return this.service.update(id, UpdateTelephoneDto);
   }
 
   // ROTA, QUE DELETA UM TELEFONE PELO ID.

@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { Prisma, Telephone } from '@prisma/client';
+import { UpdateTelephoneDto } from './dto/update-telephone.dto';
 
 @Injectable()
 export class TelephonesService {
@@ -33,6 +34,17 @@ export class TelephonesService {
   async findAll(): Promise<Telephone[]> {
     const telephone = await this.db.telephone.findMany();
     return telephone;
+  }
+
+  async update(id: string, data: UpdateTelephoneDto) {
+    await this.db.telephone.update({
+      where: { id },
+      data,
+    });
+
+    return {
+      mensage: 'Telefone atualizado com sucesso!',
+    };
   }
 
   // DELETA UM TELEFONE PELO ID.
