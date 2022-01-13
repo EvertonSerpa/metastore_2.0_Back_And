@@ -1,10 +1,6 @@
 * Para cadastrar um telefone você tem que passar o ID de um usúario cadastrado. 
 
 {
-    "id": "e7ffb0d1-293f-473c-a3dc-a6b2ae68d79e"
-}
-
-{
     "phone_number": "981088406",
     "country_code": "55",
     "region_code": "85",
@@ -12,7 +8,6 @@
     
 }
 
-"id": "a0340869-fbc2-41f0-873b-54137e13e018",
 
 {
     "phone_number": "985457891",

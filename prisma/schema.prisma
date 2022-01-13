@@ -78,3 +78,14 @@ model Products {
   updateAt              DateTime @updatedAt
   createAt              DateTime @default(now())
 }
+
+model Categories {
+  id                     String  @id @default(uuid())
+  name_category          String  @unique @db.VarChar
+  banner_category        String?
+  picture_category       String?
+  icon_category          String?
+  status_category        String?
+  counter_views_category Int?    @default(0)
+  description            String
+}

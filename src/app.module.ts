@@ -5,9 +5,9 @@ import { AuthModule } from './auth/auth.module';
 import { MoneyDepositsModule } from './money-deposits/money-deposits.module';
 import { PrismaService } from './prisma.service';
 import { ProductsModule } from './products/products.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
-  controllers: [],
   providers: [PrismaService],
   imports: [
     TelephonesModule,
@@ -15,6 +15,7 @@ import { ProductsModule } from './products/products.module';
     AuthModule,
     MoneyDepositsModule,
     ProductsModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}

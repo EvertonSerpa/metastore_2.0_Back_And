@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------------
+
 TELEFONE ROTAS
 
 /api/telephones/create                        | POST               
@@ -8,6 +9,7 @@ TELEFONE ROTAS
 /api/telephones/delete/                       | DELETE                *Informe o id
 
 -------------------------------------------------------------------------------------------
+
 USUARIO ROTAS 
 
 /api/users/create-user                        | POST
@@ -29,8 +31,22 @@ DEPÓSITO ROTAS
 
 -------------------------------------------------------------------------------------------
 
+PRODUTO ROTAS
+
 /api/products/create                          | POST
 /api/products/find/                           | GET                   *Informe o id
 /api/products/find-all                        | GET ALL 
 /api/products/patch/                          | PATCH                 *Informe o id
 /api/products/delete/                         | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------
+
+CATEGORIAS ROTAS
+
+/api/categories/create,                       | POST
+/api/categories/find/                         | GET                   *Informe o id
+/api/categories/find-all                      | GET ALL
+/api/categories/patch/                        | PATCH                 *Informe o id
+/api/categories/delete/                       | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------

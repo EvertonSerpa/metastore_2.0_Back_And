@@ -1,14 +1,11 @@
 Para cadastrar um depósito você tem que passar o ID de um usúario cadastrado. 
 
- "id": "4a9e040a-52d8-4948-a777-5d3ebc8ba1fb",
 
 {
     "value": 1000,
     "userId": "2d425dd7-2aa9-4f35-9013-213cca6ff938"
     
 }
-
-"id": "c2496364-7350-40b1-bf67-cdb712a246a4",
 
 {
     "value": 3000,

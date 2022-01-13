@@ -1,18 +1,10 @@
 
 {
-    "id": "2d425dd7-2aa9-4f35-9013-213cca6ff938"
-}
-
-{
     "name": "Everton Serpa",
     "email": "evertonnascimento.serpa@gmail.com",
     "nick_name": "Aika Akime",
     "password": "123456789"
     
-}
-
-{
-    "id": "a80f2cc2-eb1b-42e4-a69a-714bef9b87e9"
 }
 
 {

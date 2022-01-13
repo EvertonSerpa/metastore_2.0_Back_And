@@ -1,0 +1,9 @@
+{
+    "name_category": "Carro",
+    "description": "Virtual"
+}
+
+{
+    "name_category": "Casa",
+    "description": "Beira mar"
+}
