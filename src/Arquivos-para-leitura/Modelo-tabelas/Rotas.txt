@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------------------
+TELEFONE ROTAS
+
+/api/telephones/create                        | POST               
+/api/telephones/find/                         | GET                   *Informe o id
+/api/telephones/find-all                      | GET ALL 
+/api/telephones/patch/                        | PATCH                 *Informe o id
+/api/telephones/delete/                       | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------
+USUARIO ROTAS 
+
+/api/users/create-user                        | POST
+/api/users/create-admin                       | POST
+/api/users/find/                              | GET                   *Informe o id
+/api/users/find-all                           | GET ALL
+/api/users/patch/                             | PATCH                 *Informe o id
+/api/users/delete/                            | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------
+
+DEPÓSITO ROTAS
+
+/api/money-deposit/create                     | POST 
+/api/money-deposit/find/                      | GET                   *Informe o id
+/api/money-deposit/find-all                   | GET ALL
+/api/money-deposit/patch/                     | PATCH                 *Informe o id
+/api/money-deposit/delete/                    | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------
+
+/api/products/create                          | POST
+/api/products/find/                           | GET                   *Informe o id
+/api/products/find-all                        | GET ALL 
+/api/products/patch/                          | PATCH                 *Informe o id
+/api/products/delete/                         | DELETE                *Informe o id
