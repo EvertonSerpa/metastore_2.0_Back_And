@@ -29,6 +29,7 @@ nest new dropshipping | Cria um projeto em nestjs
 
 npm run start:dev | Para rodar a aplaicação em modo desenvolvedor.
 npx nest generate -help | Mostra os comandos que a cli pode gerar.
+nest g resource subcategories
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,6 +60,13 @@ Dentro da pasrta src vamos criar os componentes do users
 1 - npx nest generate controller users --no-spec
 2 - npx nest generate module users --no-spec
 3 - npx nest generate service users --no-spec
+
+npx nest generate controller subcategories --no-spec
+npx nest generate module subcategories --no-spec
+npx nest generate service subcategories --no-spec
+
+
+
 
 obs: o --no-spec não gera os arquivos de testes.
 

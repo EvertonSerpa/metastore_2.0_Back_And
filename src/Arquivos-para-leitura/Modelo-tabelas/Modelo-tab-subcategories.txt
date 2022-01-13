@@ -1,0 +1,9 @@
+{
+    "nome_subcategory": "Pintura para carros",
+    "description": "Muda a cor a cada 2 min"
+}
+
+{
+    "nome_subcategory": "Alarme para casas",
+    "description": "top 1000"
+}

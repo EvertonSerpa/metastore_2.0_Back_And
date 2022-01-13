@@ -36,6 +36,8 @@ export class ProductsService {
     return product;
   }
 
+  // ATUALIZA UM PRODUTO PELO ID. (PATCH)
+
   async update(id: string, data: UpdateProductDto) {
     await this.db.products.update({
       where: { id },

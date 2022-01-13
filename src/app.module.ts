@@ -6,6 +6,7 @@ import { MoneyDepositsModule } from './money-deposits/money-deposits.module';
 import { PrismaService } from './prisma.service';
 import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
+import { SubcategoriesModule } from './subcategories/subcategories.module';
 
 @Module({
   providers: [PrismaService],
@@ -16,6 +17,8 @@ import { CategoriesModule } from './categories/categories.module';
     MoneyDepositsModule,
     ProductsModule,
     CategoriesModule,
+    SubcategoriesModule,
   ],
+  controllers: [],
 })
 export class AppModule {}

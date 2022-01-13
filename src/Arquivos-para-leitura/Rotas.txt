@@ -50,3 +50,13 @@ CATEGORIAS ROTAS
 /api/categories/delete/                       | DELETE                *Informe o id
 
 -------------------------------------------------------------------------------------------
+
+SUBCATEGORIAS ROTAS
+
+/api/subcategorie/create                      | POST
+/api/subcategorie/find/                       | GET                   *Informe o id
+/api/subcategorie/find-all                    | GET ALL
+/api/subcategorie/patch/                      | PATCH                 *Informe o id
+/api/subcategorie/delete/                     | DELETE                *Informe o id
+
+-------------------------------------------------------------------------------------------

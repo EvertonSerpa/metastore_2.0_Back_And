@@ -77,15 +77,39 @@ model Products {
   featured              Boolean  @default(true)
   updateAt              DateTime @updatedAt
   createAt              DateTime @default(now())
+
+  productsRef  Categories? @relation(fields: [categoriesId], references: [id])
+  categoriesId String?
 }
 
 model Categories {
-  id                     String  @id @default(uuid())
-  name_category          String  @unique @db.VarChar
+  id                     String   @id @default(uuid())
+  name_category          String   @unique @db.VarChar
   banner_category        String?
   picture_category       String?
   icon_category          String?
   status_category        String?
-  counter_views_category Int?    @default(0)
+  counter_views_category Int?     @default(0)
   description            String
+  updateAt               DateTime @updatedAt
+  createAt               DateTime @default(now())
+
+  Products      Products[]
+  Subcategories Subcategories[]
+}
+
+model Subcategories {
+  id                        String   @id @default(uuid())
+  nome_subcategory          String   @unique
+  banner_subcategory        String?
+  picture_subcategory       String?
+  icono_subcategory         String?
+  status_subcategory        String?
+  counter_views_subcategory Int?     @default(0)
+  description               String
+  updateAt                  DateTime @updatedAt
+  createAt                  DateTime @default(now())
+
+  subcategoriesRef Categories? @relation(fields: [categoriesId], references: [id])
+  categoriesId     String?
 }
