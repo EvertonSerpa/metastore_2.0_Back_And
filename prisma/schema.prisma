@@ -121,6 +121,6 @@ model Wallets {
   updateAt DateTime @updatedAt
   createAt DateTime @default(now())
 
-  walletsRef     User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId   String
+  walletsRef User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
 }
