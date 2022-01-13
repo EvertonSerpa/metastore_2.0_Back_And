@@ -7,7 +7,7 @@ import { PrismaService } from './prisma.service';
 import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
 import { SubcategoriesModule } from './subcategories/subcategories.module';
-
+import { WalletModule } from './wallets/wallets.module';
 @Module({
   providers: [PrismaService],
   imports: [
@@ -18,6 +18,7 @@ import { SubcategoriesModule } from './subcategories/subcategories.module';
     ProductsModule,
     CategoriesModule,
     SubcategoriesModule,
+    WalletModule,
   ],
   controllers: [],
 })

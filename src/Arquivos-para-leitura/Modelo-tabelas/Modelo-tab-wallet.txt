@@ -1,0 +1,6 @@
+{
+    "balance": 50000,
+    "userId": "35629f07-111f-4b2c-ab80-6cd3efe4bb26"
+}
+
+*obs o campo userId tem que ser obrigatoriamente preenchido com um id de usúario já existente.

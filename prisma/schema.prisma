@@ -29,6 +29,7 @@ model User {
 
   Tephone       Telephone[]
   Deposit_Money Deposit_Money[]
+  Wallets       Wallets[]
 }
 
 model Telephone {
@@ -112,4 +113,14 @@ model Subcategories {
 
   subcategoriesRef Categories? @relation(fields: [categoriesId], references: [id])
   categoriesId     String?
+}
+
+model Wallets {
+  id       String   @id @default(uuid())
+  balance  Int
+  updateAt DateTime @updatedAt
+  createAt DateTime @default(now())
+
+  walletsRef     User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
 }

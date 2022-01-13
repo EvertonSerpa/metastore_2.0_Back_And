@@ -60,3 +60,11 @@ SUBCATEGORIAS ROTAS
 /api/subcategorie/delete/                     | DELETE                *Informe o id
 
 -------------------------------------------------------------------------------------------
+
+CARETIRA ROTAS
+
+/api/wallet/create                            | POST
+/api/wallet/find/                             | GET                  *Informe o id
+/api/wallet/find-all                          | GET
+/api/wallet/patch/                            | PATCH                *Informe o id
+/api/wallet/delete/                           | DELETE               *Informe o id
