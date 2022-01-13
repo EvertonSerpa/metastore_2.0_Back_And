@@ -11,16 +11,24 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(uuid())
-  name     String
-  email    String   @unique
-  role     String   @default("USER")
-  status   Boolean  @default(true)
-  password String
-  updateAt DateTime @updatedAt
-  createAt DateTime @default(now())
+  id                    String   @id @default(uuid())
+  name                  String
+  profile_picture       String?
+  nick_name             String   @unique
+  status                Boolean? @default(true)
+  seller                Boolean? @default(false)
+  description           String?
+  email                 String   @unique
+  role                  String   @default("USER")
+  banner                String?
+  average_qualification Int?
+  counter_views_store   Int?     @default(0)
+  password              String
+  updateAt              DateTime @updatedAt
+  createAt              DateTime @default(now())
 
-  Tephone Telephone[]
+  Tephone       Telephone[]
+  Deposit_Money Deposit_Money[]
 }
 
 model Telephone {
@@ -32,6 +40,41 @@ model Telephone {
   createAt     DateTime @default(now())
 
 
-  User   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String?
+  telephoneRef User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String?
+}
+
+model Deposit_Money {
+  id       String   @id @default(uuid())
+  value    Int
+  updateAt DateTime @updatedAt
+  createAt DateTime @default(now())
+
+  deposit_moneyRef User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String
+}
+
+model Products {
+  id                    String   @id @default(uuid())
+  average_qualification Int?
+  name_product          String
+  price                 Int
+  description           String
+  specs                 String?
+  details               String?
+  color                 String?
+  tags_product          String?
+  video                 String?
+  main_picture          String?
+  gallery               String?
+  image_3d              String?
+  status                String?
+  counter_views_product Int?     @default(0)
+  collection            String?  @db.VarChar
+  stock                 Int?     @default(0)
+  offer                 Int?     @default(0)
+  highlight_level       Int?     @default(0)
+  featured              Boolean  @default(true)
+  updateAt              DateTime @updatedAt
+  createAt              DateTime @default(now())
 }

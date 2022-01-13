@@ -24,7 +24,6 @@ export class UsersController {
 
   @Post('create-user')
   createUser(@Body() data: CreateUserDto): Promise<User> {
-    delete data.passawordConfirmation;
     return this.service.create(data, UserRole.USER);
   }
 
@@ -33,7 +32,6 @@ export class UsersController {
   @UseGuards(SimpleGuard)
   @Post('create-admin')
   createAdmin(@Body() data: CreateUserDto): Promise<User> {
-    delete data.passawordConfirmation;
     return this.service.create(data, UserRole.ADMIN);
   }
 
